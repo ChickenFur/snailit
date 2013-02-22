@@ -1,3 +1,36 @@
 <html>
-Testing!
+<head>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+  <script type="text/javascript" src="require.js"></script>
+  <script type="text/javascript" src="stripe.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="stripe-form">
+  <form action="/pay" method="POST" id="payment-form">
+    <div class="form-row">
+      <div class="cc-text">Card Number</div>
+      <input type="text" size="30" autocomplete="off" class="card-number"/>
+    </div>
+    <div class="form-row">
+      <div class="cc-text">CVC</div>
+      <input type="text" size="4" autocomplete="off" class="card-cvc"/>
+    </div>
+    <div class="form-row">
+      <div class="cc-text">Expiration (MM/YYYY)</div>
+      <input type="text" size="2" class="card-expiry-month"/>
+      <span> / </span>
+      <input type="text" size="4" class="card-expiry-year"/>
+    </div>
+    <input type="input" name="amount" value="2000" id="cc-amount">
+    <button type="submit" class="submit-button">Submit Payment</button>
+  </form>
+</div>
+<div id="error" class="hidden"></div>
+<div id="success" class="hidden">Thanks for signing up at Browserling!</div>
+</body>
 </html>
