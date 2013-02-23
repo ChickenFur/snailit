@@ -1,7 +1,5 @@
 var publicStripeApiKeyTesting = 'pk_test_64CDek6XwYKs27Tw6ejWMTNj';
-
 Stripe.setPublishableKey(publicStripeApiKeyTesting);
-
 $(document).ready(function (){
   function stripeResponseHandler (status, response) {
     if (response.error) {
@@ -10,7 +8,6 @@ $(document).ready(function (){
       $('#stripe-form .submit-button').removeAttr("disabled");
       return;
     }
-    
     var form = $("#payment-form");
     form.append("<input type='hidden' name='stripeToken' value='" + response.id + "'/>");
     postData = {stripeToken: response.id,
@@ -20,27 +17,11 @@ $(document).ready(function (){
       url: "/pay",
       type: "GET",
       data: postData,
-      success: function (data){ console.log(data);},
+      success: function (data){ $('.submit-button')},
       error: function (derror){ console.log(error);}
     });
 
-    // $.post(
-    //   form.attr('action'),
-    //   form.serialize(),
-    //   function (status) {
-    //     if (status != 'ok') {
-    //       $('#error').text(status);
-    //       $('#error').slideDown(300);
-    //     }
-    //     else {
-    //       $('#error').hide();
-    //       $('#success').slideDown(300);
-    //     }
-    //     $('.submit-button').removeAttr("disabled");
-    //   }
-    //);
   }
-
   // http://stripe.com/docs/tutorials/forms
   $("#payment-form").submit(function(event) {
     $('#error').hide();
@@ -58,5 +39,4 @@ $(document).ready(function (){
     // prevent the form from submitting with the default action
     return false;
   });
-
 });
