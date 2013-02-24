@@ -1,0 +1,12 @@
+body {
+}
+
+#mainFrame{
+  margin-left: 40%;
+}
+#stripe-form{
+  text-align: left;
+}
+.hidden{
+  display: none;
+}
