@@ -1,12 +1,46 @@
 body {
 }
 
-#mainFrame{
-  margin-left: 40%;
+ul
+{
+  list-style-type: none;
 }
+
+#mainFrame{
+  margin-left: 5%;
+  margin-right: 50%;
+}
+
+li{
+  display: inline-block;
+  margin:0px 30px 30px 30px;
+}
+
+li span{
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+}
+
+li:hover{
+  cursor: pointer;
+  opacity: .8;
+  background-color: lightgray;
+}
+
+h2{
+  text-align: center;
+}
+
 #stripe-form{
   text-align: left;
 }
 .hidden{
   display: none;
+}
+fieldset{
+  margin-left: 100px;
+}
+#types{
+  margin-left: 60px;
 }
