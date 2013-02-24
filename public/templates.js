@@ -27,21 +27,16 @@ templates.types = "\
             <img src='static/img/envelope.png' />\
             <span class='type'>Envelope</span>\
           </li>\
-          <li id='package'>\
-            <img src='static/img/package.png' />\
-            <span class='type'>Package</span>\
-          </li>\
-          <li id='box'>\
-            <img src='static/img/box.png' />\
-            <span class='type'>Box</span>\
-          </li>\
         </ul>\
 ";
 
 templates.address = "\
       <form action='#'>\
           <fieldset>\
-            <label>Send to</label>\
+            <label>From ZipCode: </label>\
+            <input type='text' id='fromZip' value='zip' />\
+            <br />\
+            <label>Send to: </label>\
             <input type='text' id='name' data-value='Full name' value='Full name' />\
             <br />\
             <label>at</label>\
@@ -61,7 +56,7 @@ templates.packageForm = "\
     <div id='address'>" +
     templates.address +
     "</div>\
-    <h2>What Type?</h2>\
+    <h2>Click Envelope to Pay!</h2>\
     <div id='types'>" +
     templates.types +
     "</div>\
