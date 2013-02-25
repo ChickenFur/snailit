@@ -14,9 +14,9 @@ ul
 
 li{
   display: inline-block;
-  margin:0px 30px 30px 30px;
   padding: 20px;
   border-radius: 10px;
+   background-color: lightgray;
 }
 
 li span{
@@ -27,12 +27,12 @@ li span{
 
 li:hover{
   cursor: pointer;
-  opacity: .8;
-  background-color: lightgray;
+  background-color: lightblue;
 }
 
 h2{
   text-align: center;
+
 }
 
 #stripe-form{
@@ -44,6 +44,15 @@ h2{
 fieldset{
   margin-left: 100px;
 }
-#types{
-  margin-left: 60px;
+.priceButton{
+  display: inline-block;
+  padding: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  background-color: lightgray;
+
+}
+.priceButton:hover {
+  cursor: pointer;
+  background-color: lightblue;
 }

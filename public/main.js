@@ -1,32 +1,55 @@
 $(document).ready(function (){
 
-//Shipping
 displayStartingPage();
 
-//1 Click
-
-
-
-//payment
-//displayPaymentButton();
-
 });
-var displayPaymentButton = function (){
-  $("#mainFrame").append("<input type='button' value='Pay' id='payNowButton'></input>")
-  $("#payNowButton").on("click", function (){
-    $("#payNowButton").remove();
-    setupStripeForm();
-  });
-};
-
 var displayStartingPage = function (){
   $("#mainFrame").append(templates.packageForm);
   $("input").on("click", function(event) {
     $(event.target).attr("value", "");
   })
   $("#envelope").on("click", function(event){
-    var price = requestPrice();
-    setupStripeForm();
-    $("#cc-amount").val(price);
+    var fromZip = $('#fromZip').val();
+    var toZip = $('#zip').val();
+    $("#mainFrame").html("");  
+    $('#mainFrame').append("<div id='loading'> <img src=loading.gif> </div>")
+    requestPrice(fromZip, toZip, function (data){
+      $("#mainFrame").html("");
+      setupPriceOptions(JSON.parse(data));
+    });
   });
 }
+var setupPriceOptions = function(prices){
+  var priceOptionDiv = createPriceOptions(prices);
+  $("#mainFrame").append(priceOptionDiv);
+  $('.priceButton').on("click", function( event ){
+    $("#mainFrame").html("");
+    setupStripeForm();
+    var divs = $(event.currentTarget).children()
+    var price = divs[1];
+    $("#cc-amount").val(price.innerText );
+  })
+}
+
+var requestPrice = function(fromZip, toZip, callBack){
+  $.ajax({
+    url:"/letter/?fromZip="+fromZip+"&toZip="+toZip,
+    success: function(data){
+      callBack(data);
+    },
+    error: function(error){
+      console.log("Error:", error);
+    }
+  })
+};
+var createPriceOptions = function (prices){
+  var div = "<div>"
+  for (var i = 0; i < prices.rates.length; i++){
+    div += "<span class='priceButton'>" +
+    "<div>" + prices.rates[i].service + "</div>"+
+    "<div>" + prices.rates[i].rate + "</div></span>"
+    
+  }
+  div +="</div>"
+  return div;
+};
