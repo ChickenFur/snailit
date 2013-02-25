@@ -1,4 +1,5 @@
 body {
+  text-align: center;
 }
 
 ul
@@ -8,8 +9,7 @@ ul
 }
 
 #mainFrame{
-  margin-left: 5%;
-  margin-right: 50%;
+ 
 }
 
 li{
@@ -17,6 +17,7 @@ li{
   padding: 20px;
   border-radius: 10px;
    background-color: lightgray;
+   margin-left: -55px;
 }
 
 li span{
@@ -31,18 +32,21 @@ li:hover{
 }
 
 h2{
-  text-align: center;
-
+  
 }
 
-#stripe-form{
+#stripe-form{ 
   text-align: left;
+  margin-left: 40%;
 }
 .hidden{
   display: none;
 }
 fieldset{
-  margin-left: 100px;
+  text-align: left;
+  margin-left: 40%;
+  margin-right: 40%;
+  
 }
 .priceButton{
   display: inline-block;
@@ -55,4 +59,7 @@ fieldset{
 .priceButton:hover {
   cursor: pointer;
   background-color: lightblue;
+}
+.note {
+  font-size: .8em;
 }

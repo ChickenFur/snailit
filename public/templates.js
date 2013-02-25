@@ -16,10 +16,14 @@ templates.stripeForm = "\
         <span> / </span>\
         <input type='text' size='4' class='card-expiry-year' value='2016'/>\
       </div>\
-      <label>Amount in Cents: </label>\
-      <input type='input' name='amount' value='2000' id='cc-amount'>\
+      <label>*Amount in Cents: </label>\
+      <input type='input' name='amount' value='2000' id='cc-amount' readonly>\
       <br>\
       <input type='button' id='payButton' value='Submit Payment'></button>\
+      <br>\
+      <br>\
+      <br>\
+      <span class='note'> $0.50 added to any charges under $0.50</span>\
       <div id='error' class='hidden'></div>\
   </div>";
 
