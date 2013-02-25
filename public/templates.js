@@ -16,7 +16,9 @@ templates.stripeForm = "\
         <span> / </span>\
         <input type='text' size='4' class='card-expiry-year' value='2016'/>\
       </div>\
+      <label>Amount in Cents: </label>\
       <input type='input' name='amount' value='2000' id='cc-amount'>\
+      <br>\
       <input type='button' id='payButton' value='Submit Payment'></button>\
       <div id='error' class='hidden'></div>\
   </div>";

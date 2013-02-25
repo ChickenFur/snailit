@@ -36,14 +36,13 @@ app.use("/pay", function(req, res) {
     description : "snailitExample"
   }, function (err, customer) {
     if (err) {
-      console.log("Error MEssage HEre");
+      console.log("Error", err);
       var msg = customer.error.message || "unknown";
       res.send("Error while processing your payment: " + msg);
     }
     else {
       var id = customer.id;
       console.log('Success! Customer with Stripe ID ' + id + ' just signed up!');
-      // save this customer to your database here!
       res.send('ok');
     }
   });

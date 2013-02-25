@@ -27,7 +27,8 @@ var setupPriceOptions = function(prices){
     setupStripeForm();
     var divs = $(event.currentTarget).children()
     var price = divs[1];
-    $("#cc-amount").val(price.innerText );
+    var amount = price.innerText; 
+    $("#cc-amount").val(formatToCents(amount));
   })
 }
 
@@ -53,3 +54,12 @@ var createPriceOptions = function (prices){
   div +="</div>"
   return div;
 };
+
+var formatToCents = function (amount){
+  var newText = amount.replace(".", "")
+  newText = parseInt(newText)
+  if ( newText < 50){
+    newText += 50;
+  }
+  return newText;
+}
